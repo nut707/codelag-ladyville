@@ -1,0 +1,306 @@
+<div class="navbar">
+	<div class="navbar-inner">
+		<a class="brand" href="#">Статистика</a>
+		<ul class="nav pull-right">
+			<li><%= link_to "На главную", root_path %></li>
+			<li><%= link_to "Выход", sgbiyfdaasfkkjasgbigbiyas_path, method: :delete %></li>
+		</ul>
+	</div>
+</div>
+<div class="container">
+	<div class="hero-unit">
+		<h2>Статистика по точкам продаж Ледивилль</h2><hr/>
+		<div class="row">
+			<div class="span12">
+				<div class="row">
+					<div class="span6">
+						<%= form_for @tcheck_export, url: export_reports_path(:format => :xls) do |f| %>
+						<div class="control-group">
+							<%= f.label :buy_point, "Точка продажи", class: "control-label" %>
+							<div class="controls">
+								<%= f.select(:buy_point, options_for_select([['Владивосток, бизнес-центр "Фреш-Плаза", Океанский пр-т, 17', 1], ['Владивосток, Торговый дом "Игнат", Комсомольская, 13', 2], ['Владивосток, Остановка "Постышева", пр-т 100 лет Владивостоку, 68а', 3], ['Уссурийск, ул. Горького, 67', 4] , ['Уссурийск, ул. Суханова, 55', 5], ['Находка, пр-т Мира, 18', 6], ['Находка, Торговый дом Купеческий, ул. Сидоренко, 1, стр 12', 7], ['Находка, Стадион "Приморец", ул. Спортивная, 2', 8], ['Спасск-Дальний, ул. Надреченская, 27', 9]], 1)) %>
+							</div>
+						</div>
+						<div class="control-group">
+							<%= f.label :start_date, "С", class: "control-label" %>
+							<div class="controls">
+								<%= f.text_field(:start_date, {class: "datepicker input-xlarge", placeholder: "01/12/2013"})%>
+							</div>
+						</div>
+						<div class="control-group">
+							<%= f.label :end_date, "По", class: "control-label" %>
+							<div class="controls">
+								<%= f.text_field(:end_date, {class: "datepicker input-xlarge", placeholder: "01/12/2013"})%>
+							</div>
+						</div>
+						<div class="control-group">
+							<div class="controls">
+								<%= f.submit "Скачать", class: "btn btn-large" %>
+							</div>
+						</div>
+						<% end %>
+						<% flash.each do |key, value| %>
+						<div class="alert alert-<%= key %>">
+						  <button type="button" class="close" data-dismiss="alert">&times;</button>
+						  <%= value %>
+						</div>
+					    <% end %>
+					</div>
+					<div class="span4">
+						<div class="alert alert-success">
+							<p>1.Выберите точку продажи</p>
+							<p>2.Выберите дату ввода чека на сайте</p>
+							<p>3.Нажмите скачать</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr/>
+		<div class="row">
+			<div class="span12">
+				<div class="row">
+					<div class="span6">
+						<%= form_for @check_import, url: import_reports_path do |f| %>
+						<div class="control-group">
+							<%= f.file_field :file %>
+						</div>
+						<div class="control-group">
+							<%= f.submit "Загрузить", class: "btn btn-large" %>
+							</div>
+						<% end %>
+					</div>
+					<div class="span4">
+						<div class="alert alert-success">
+							<p>1.Удалите из скаченного файла строки с неправильными чеками</p>
+							<p>2.Сохраните изменения</p>
+							<p>3.Выберите отредактированный файл</p>
+							<p>4.Нажмите загрузить</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr/>
+		<div class="alert alert-success">
+							<p>Чеки введенные в систему за последнюю неделю</p>
+						</div>
+		<table class="table table-bordered">
+			<caption><h4><hr/><%= @points[0] %></h4></caption>
+			<thead>
+				<tr>
+					<th>Имя участника</th>
+					<th>Номер чека</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% if @check_1.blank? %>
+			<tr>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<% else %>
+			<% @check_1.each do |check| %>
+				<tr>
+					<td><%= check.name %></td>
+					<td>№ <%= check.number_check %></td>
+				</tr>
+				<% end %>
+			<% end %>
+			</tbody>
+		</table>
+		<table class="table table-bordered">
+			<caption><h4><hr/><%= @points[1] %></h4></caption>
+			<thead>
+				<tr>
+					<th>Имя участника</th>
+					<th>Номер чека</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% if @check_2.blank? %>
+			<tr>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<% else %>
+			<% @check_2.each do |check| %>
+				<tr>
+					<td><%= check.name %></td>
+					<td>№ <%= check.number_check %></td>
+				</tr>
+				<% end %>
+			<% end %>
+			</tbody>
+		</table>
+		<table class="table table-bordered">
+			<caption><h4><hr/><%= @points[2] %></h4></caption>
+			<thead>
+				<tr>
+					<th>Имя участника</th>
+					<th>Номер чека</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% if @check_3.blank? %>
+			<tr>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<% else %>
+			<% @check_3.each do |check| %>
+				<tr>
+					<td><%= check.name %></td>
+					<td>№ <%= check.number_check %></td>
+				</tr>
+				<% end %>
+			<% end %>
+			</tbody>
+		</table>
+		<table class="table table-bordered">
+			<caption><h4><hr/><%= @points[3] %></h4></caption>
+			<thead>
+				<tr>
+					<th>Имя участника</th>
+					<th>Номер чека</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% if @check_4.blank? %>
+			<tr>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<% else %>
+			<% @check_4.each do |check| %>
+				<tr>
+					<td><%= check.name %></td>
+					<td>№ <%= check.number_check %></td>
+				</tr>
+				<% end %>
+			<% end %>
+			</tbody>
+		</table>
+		<table class="table table-bordered">
+			<caption><h4><hr/><%= @points[4] %></h4></caption>
+			<thead>
+				<tr>
+					<th>Имя участника</th>
+					<th>Номер чека</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% if @check_5.blank? %>
+			<tr>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<% else %>
+			<% @check_5.each do |check| %>
+				<tr>
+					<td><%= check.name %></td>
+					<td>№ <%= check.number_check %></td>
+				</tr>
+				<% end %>
+			<% end %>
+			</tbody>
+		</table>
+		<table class="table table-bordered">
+			<caption><h4><hr/><%= @points[5] %></h4></caption>
+			<thead>
+				<tr>
+					<th>Имя участника</th>
+					<th>Номер чека</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% if @check_6.blank? %>
+			<tr>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<% else %>
+			<% @check_6.each do |check| %>
+				<tr>
+					<td><%= check.name %></td>
+					<td>№ <%= check.number_check %></td>
+				</tr>
+				<% end %>
+			<% end %>
+			</tbody>
+		</table>
+		<table class="table table-bordered">
+			<caption><h4><hr/><%= @points[6] %></h4></caption>
+			<thead>
+				<tr>
+					<th>Имя участника</th>
+					<th>Номер чека</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% if @check_7.blank? %>
+			<tr>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<% else %>
+			<% @check_7.each do |check| %>
+				<tr>
+					<td><%= check.name %></td>
+					<td>№ <%= check.number_check %></td>
+				</tr>
+				<% end %>
+			<% end %>
+			</tbody>
+		</table>
+		<table class="table table-bordered">
+			<caption><h4><hr/><%= @points[7] %></h4></caption>
+			<thead>
+				<tr>
+					<th>Имя участника</th>
+					<th>Номер чека</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% if @check_8.blank? %>
+			<tr>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<% else %>
+			<% @check_8.each do |check| %>
+				<tr>
+					<td><%= check.name %></td>
+					<td>№ <%= check.number_check %></td>
+				</tr>
+				<% end %>
+			<% end %>
+			</tbody>
+		</table>
+		<table class="table table-bordered">
+			<caption><h4><hr/><%= @points[8] %></h4></caption>
+			<thead>
+				<tr>
+					<th>Имя участника</th>
+					<th>Номер чека</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% if @check_9.blank? %>
+			<tr>
+				<td>---</td>
+				<td>---</td>
+			</tr>
+			<% else %>
+			<% @check_9.each do |check| %>
+				<tr>
+					<td><%= check.name %></td>
+					<td>№ <%= check.number_check %></td>
+				</tr>
+				<% end %>
+			<% end %>
+			</tbody>
+		</table>
+
+	</div>
+</div>

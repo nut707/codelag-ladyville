@@ -1,0 +1,60 @@
+<div id = "push_check"class="span6">
+<%= form_for :tcheck, url:{action: "create"}, html:{class: "form-horizontal"} do |f| %>
+	<% flash.each do |key, value| %>
+	<div class="alert alert-<%= key %>">
+	  <button type="button" class="close" data-dismiss="alert">&times;</button>
+	  <%= value %>
+	  <% if @tcheck.errors.any? %>
+	      <% @tcheck.errors.messages.values.each do |msg| %>
+	        <li><%= msg[0] %></li>
+	      <% end %>
+	      </ul>
+	    <% end %>
+	  
+	</div>
+    <% end %>
+
+	<div class="control-group">
+	<%= f.label :buy_point, "Точка продажи", class: "control-label" %>
+	<div class="controls">
+	<%= f.select(:buy_point, options_for_select([['Владивосток, бизнес-центр "Фреш-Плаза", Океанский пр-т, 17', 1], ['Владивосток, Торговый дом "Игнат", Комсомольская, 13', 2], ['Владивосток, Остановка "Постышева", пр-т 100 лет Владивостоку, 68а', 3], ['Уссурийск, ул. Горького, 67', 4] , ['Уссурийск, ул. Суханова, 55', 5], ['Находка, пр-т Мира, 18', 6], ['Находка, Торговый дом Купеческий, ул. Сидоренко, 1, стр 12', 7], ['Находка, Стадион "Приморец", ул. Спортивная, 2', 8], ['Спасск-Дальний, ул. Надреченская, 27', 9]], 1)) %>
+	</div>
+	</div>
+	<div class="control-group">
+	<%= f.label :number_check, "Номер чека", class: "control-label" %>
+	<div class="controls">
+	<%= f.text_field :number_check, class:"input-xlarge", placeholder: "123456" %>
+	</div>
+	</div>
+	<div class="control-group">
+	<%= f.label :phone_number, "Номер телефона", class: "control-label" %>
+	<div class="controls">
+	<%= f.text_field :phone_number, class:"input-xlarge", placeholder: "+79000000000" %>
+	</div>
+	</div>
+	<div class="control-group">
+	<%= f.label :name, "Фамилия и имя", class: "control-label" %>
+	<div class="controls">
+	<%= f.text_field :name, class:"input-xlarge", placeholder: "Иванов Иван" %>
+	</div>
+	</div>
+
+	<div class="control-group">
+	<%= f.label :date_buy, "Дата покупки", class: "control-label" %>
+	<div class="controls">
+	<%= f.text_field :date_buy, class: "datepicker input-xlarge", placeholder: "01/12/2013" %>
+	</div>
+	</div>
+	<div class="container">
+	<div style="margin-left:100px" class="row">
+	<%= recaptcha_tags %>
+	</div>
+	</div>
+	<br>
+	<div class="control-group">
+	<div class="controls">
+	<%= f.submit "Отправить", class: "btn btn-success btn-mar" %>
+	</div>
+	</div>
+<% end %>
+</div>

@@ -1,0 +1,162 @@
+// Place all the styles related to the tchecks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+@import "bootstrap-datepicker";
+
+/* ReCaptcha Iframe FIX */
+body > iframe { display:none !important; }
+
+.first_part{
+	 background-image: url(image_path("bg1.png"));
+	 padding-top: 20px;
+	 padding-bottom: 20px; 
+}
+
+.second_part{
+	 background-image: url(image_path("bg2.png"));
+	 padding-top: 20px;
+	 padding-bottom: 20px;
+}
+
+.third_part{
+	padding-top: 20px;
+	padding-bottom: 10px;
+	background-image: url(image_path("bg1.png"));
+}
+
+.fourth_part{
+	padding-top: 20px;
+	padding-bottom: 10px;
+	background-image: url(image_path("bg2.png"));
+}
+
+.fifth_part{
+	padding-top: 20px;
+	padding-bottom: 10px;
+	background-image: url(image_path("bg1.png"));
+}
+
+.logo{
+   width:523px;
+   height:481px; 
+   margin:0 auto;
+}
+
+.logo img{
+  width:523px;
+  height:481px; 
+}
+
+.btn_mar{
+	margin-top: 20px;
+	margin-left: 40px
+}
+
+.strip_top{
+	background: url(image_path("bg-top-pink-center-tp.png")) 50% 0 repeat #E74382;
+	display: block;
+	padding: 18px 0 12px;
+	height: 36px;
+}
+.strip_top ul li a span{
+	margin-left: 100px;
+	}
+.strip_top ul li {
+	vertical-align: top;
+}
+	
+.strip_half{
+	background: url(image_path("bg-top-pink-center-tp.png")) 50% 0 repeat #E74382;
+	display: block;
+	height: 36px;
+}
+table.table{
+ /*background-color: #f9f9f9;*/
+ border: none !important;
+}
+table.table>thead>tr>th,table.table>tbody>tr>td{
+ border-left: none !important;
+ border-right: none !important;
+ font-size: 1.3em;
+ font-style: normal;
+ font-family: Georgia;
+}
+table.table>thead>tr>th{
+ color:#E74382; 
+}
+table.table>tbody>tr>td:nth-child(4),table.table>thead>tr>th:nth-child(4){
+ text-align: center;
+ width:25%;
+}
+table.table>tbody>tr>td:nth-child(3),table.table>thead>tr>th:nth-child(3){
+ text-align: center;
+ width:25%;
+}
+table.table>tbody>tr>td:nth-child(2),table.table>thead>tr>th:nth-child(2){
+ text-align: center;
+ width:25%;
+}
+table.table>tbody>tr>td:nth-child(1),table.table>thead>tr>th:nth-child(1){
+ text-align: center;
+ width:25%;
+}
+
+caption{
+	padding-bottom: 10px;
+	text-align: left;
+}
+span.top_menu{
+	font-size: 1.2em;
+	color:white;
+	font-family: Georgia, times, serif;
+	text-align: center; 
+	font-style: italic;
+	text-transform: uppercase;
+	line-height:1.8;
+}
+.ladyville-text{
+	text-align: justify; 
+	font-style: italic;
+	font-size: 1.4em; 
+	/*color:#E74382;*/
+	font-family: Georgia;
+	line-height:1.6;
+}
+.star{
+	font-size: 1em;
+	font-style: normal;
+}
+
+h1.ladyville-text{
+	text-align: center;
+	font-size: 2em;
+	font-style: normal;
+	color:#E74382; 
+	}
+h3.ladyville-text{
+	text-align: center;
+	font-size: 1.5em;
+	font-style: normal;
+	color:#E74382; 
+	}
+
+
+h4.ladyville-text{
+	font-style: normal;
+	text-align: center;
+	color:#E74382;
+	}
+
+.check{
+	width:370px;
+	height:548px;
+	margin-left: 60px;
+}
+hr{
+	border-top: 1px solid #E74382;
+  	border-bottom: 1px solid #E74382;
+}
+select{
+	width: 285px;
+}

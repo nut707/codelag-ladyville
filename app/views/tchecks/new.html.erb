@@ -1,0 +1,156 @@
+
+<div class = "row first_part">
+	<div class="container logo">
+	<%= image_tag "logo.png", {alt:"logo"} %>
+	</div>
+</div>
+<div class="strip_top">
+	<div class="container">
+		<ul class="inline">
+			<li>
+				<a href="#push_check"><span class="top_menu">Ввести номер чека</span></a>
+			</li>
+			<li>
+				<a href="#brend"><span class="top_menu">Бренды акции</span></a>
+			</li>
+			<li>
+				<a href="#winners"><span class="top_menu">Победители</span></a>
+			</li>
+		</ul>
+	</div>
+</div>	
+<div class = "row second_part">
+	<div class="container well well-large">
+		<div class="container">
+			<h3 class="ladyville-text">Совместная акция торговой сети "Ледивилль" и компании Procter &amp; Gamble - именно то, чего ты так ждала!</h3>
+			<p class="ladyville-text">
+				С 1 декабря 2013 года приходи в любой из 9 магазинов "Ледивилль" по всему Приморскому краю, ищи особые ценники или просто спроси у консультанта. Приобрети участвующую в акции продукцию Procter &amp; Gamble на сумму от 400 рублей*, стань 2014-ой зарегистрировавшейся - и получи путевку на двоих в Таиланд!
+				Гарантированный подарок ждет и обладательницу каждого 50, 100, 500 и 1000-го зарегистрированных чеков: подарочный сертификат в сети "Ледивилль"**!
+				Поспеши! Акция действует только до розыгрыша главного приза!
+				Не упусти свой шанс понежиться в лазурных волнах теплого моря под тропическим солнцем Таиланда. Из зимы - прямо в лето!
+			</p>
+
+			<p class="ladyville-text star">*Сумма стоимости продукции до системы скидок торговой сети "Ледивилль".</p>
+			<p class="ladyville-text star">**Сертификат выдается на сумму 500, 1000, 3000 и 5000 рублей соответственно.</p>
+			<hr/>
+			<div class="prizes">
+				<div class="row">
+					<div class="span12">
+						<div class="row">
+							<div class="span6">
+								<%= image_tag "cards.png", {style: "margin-top:50px;", class: "img-polaroid", alt:"cards"} %>
+							</div>
+							<div class="span6">
+								<%= image_tag "tai.png", {class: "img-polaroid", alt:"tai"} %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr/>
+			<p id = "push_check" class="ladyville-text">Не  забудь! В акции участвуют только зарегистрированные чеки! После покупки непременно подойди к администратору или промоутеру возле стойки администрации, отдай чек для проставления печати и представься. Зарегистрируй номер чека и жди появления своего имени в списке победителей и по смс. Список победителей по итогам недели публикуется каждую субботу</p>
+		</div>
+		<hr/>
+		<br>
+		<div class="row"><!--1 lvl-->	
+			<div class="span12">
+				<div class="row"><!--2 lvl-->
+					<div class="span6">
+						<%= render "form" %>
+					</div>
+					<div class="span6">
+					    <%= image_tag "check.png", {class: "img-polaroid check", alt:"check"} %>
+					</div>
+				</div><!--row 2 lvl-->
+			</div><!--span12-->
+		</div><!--row 1 lvl-->	
+	</div><!--container-->	
+</div><!--row second_part-->
+<div  class="strip_half"></div>	
+<div id = "brend" class="row third_part">
+	<div  class="container well well-large">
+		<h3 class="ladyville-text">Продукты, участвующие в акции </h3>
+		<p class="ladyville-text">
+			Ariel, Dreft, Lenor, Fairy, Comet, Mr. Proper, Ambi Pur, Pampers, Pantene, H&amp;S, Wella Pro Series, Wellaflex, Wella Forte, Wella Design, Wellaton Мусс, Wellaton, Always, Always Platinum, Discreet, Tampax, Gillette (кроме одноразовых бритв), Venus (кроме одноразовых бритв), Gillette средства для/после бритья, Satin Care, Blend-a-Med, Olay, Camay, Old Spice, Gillette дезодоранты, Secret, Safeguard, Oral-B, Duracell.
+		</p>
+		
+		<ul class="thumbnails">
+		    <li class="span2">
+		     <%= image_tag "17.png", {class: "img-polaroid", alt:"17"} %>
+		    </li>
+		    <li class="span2">
+		     <%= image_tag "02.png", {class: "img-polaroid", alt:"02"} %>
+		    </li>
+		    <li class="span2">
+		     <%= image_tag "01.png", {class: "img-polaroid", alt:"01"} %>
+		    </li>
+		    <li class="span2">
+		     <%= image_tag "04.png", {class: "img-polaroid", alt:"04"} %>
+		    </li>
+		    <li class="span2">
+		     <%= image_tag "16.png", {class: "img-polaroid", alt:"16"} %>
+		    </li>
+		    <li class="span2">
+		     <%= image_tag "11.png", {class: "img-polaroid", alt:"11"} %>
+		    </li>
+		</ul>
+	</div>
+</div>
+<div class="strip_half"></div>	
+<div class="row fourth_part">
+	<div id = "winners" class="container well well-large">
+		<div class="row">
+			<div class="span12">
+			<% if @check_win.blank? %>
+				<h3 class="ladyville-text"> Скоро будут объявлены победители!!!</h3>
+				<p class="ladyville-text" style="text-align:center"> Если ты один из них, то найдешь свое имя здесь.</p>	
+			<% else %>
+			<table class="table table-bordered">
+				<caption><h1 class="ladyville-text">Победители</h1></caption>
+				<thead>
+					<tr>
+						<th>Имя победителя</th>
+						<th>Номер чека</th>
+						<th>Точка продажи</th>
+						<th>Приз</th>
+					</tr>
+				</thead>
+				<tbody>
+				<% @check_win.each do |check| %>
+					<tr>
+						<td><%= check.name %></td>
+						<td>№<%= check.number_check %></td>
+						<td><%= @points[check.buy_point.to_i-1] %></td>
+						<td><%= @prize[check.winner.to_i] %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="strip_half"></div>	
+<div class="row fifth_part">
+	<div class="container">
+		<div class="row">
+			<div class="span4 offset4">
+				<div class="row">
+					<ul class="thumbnails">
+						<li class="span2" style="background:white; margin-top: 20px;">
+							<a href="http://www.pg.com/ru_RU/" class="thumbnail">
+								<%= image_tag "P_and_G.png", {alt:"P_and_G"} %>
+							</a>
+						</li>
+						<li class="span2" style="background:white;">
+							<a href="http://www.ladyville.ru/" class="thumbnail">
+								<%= image_tag "ladyville.png", {alt:"ladyville"} %>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

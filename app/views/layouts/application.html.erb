@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>Ледивилль - "Из зимы в лето"</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta name="keywords" content="ледивилль, акция">
+  <meta name="description" content="Акция от сети магазинов косметики, парфюмерии и бытовой химии 'Ледивилль'">
+</head>
+<body>
+<% if @anchor %>
+  <script type="text/javascript">
+    window.location.hash = "<%= @anchor %>";
+  </script>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
